@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 public class UserService {
 
 	@POST
-	@Path("/resgister")
+	@Path("/register")
 	public Response registerUser() {
 		return null;
 		
