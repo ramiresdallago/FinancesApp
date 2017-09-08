@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 public class SpentService {
 
 	@POST
-	@Path("/resgister")
+	@Path("/register")
 	public Response registerSpent() {
 		return null;
 	}
@@ -25,7 +25,7 @@ public class SpentService {
 	}
 	
 	@GET
-	@Path("/find")
+	@Path("/findOne")
 	public Response findSpent(@PathParam("idSpent") String idSpent) {
 		return null;
 		
