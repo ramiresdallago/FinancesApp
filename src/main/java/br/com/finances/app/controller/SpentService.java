@@ -1,4 +1,4 @@
-package br.com.finances.app.services;
+package br.com.finances.app.controller;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;

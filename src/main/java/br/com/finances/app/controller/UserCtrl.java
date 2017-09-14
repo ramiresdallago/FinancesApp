@@ -1,4 +1,4 @@
-package br.com.finances.app.services;
+package br.com.finances.app.controller;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -9,7 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 @Path("/user")
-public class UserService {
+public class UserCtrl {
 
 	@POST
 	@Path("/register")
