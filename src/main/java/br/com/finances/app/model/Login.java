@@ -1,4 +1,4 @@
-package br.com.finance.app.model;
+package br.com.finances.app.model;
 
 public class Login {
 	private String email;
