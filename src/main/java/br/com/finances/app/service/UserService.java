@@ -19,15 +19,27 @@ public class UserService {
 	}
 
 	public boolean registerUser(User userInsert) {
-		if(users != null) {
+		if(users != null && !users.isEmpty()) {
 			for (User user : users) {
 				if(userInsert.getEmail().equals(user.getEmail())) {
 					return false;
 				}
 			}
+			defineIdUser(userInsert);
+		}else{
+			userInsert.setId(1);
 		}
+		
 		users.add(userInsert);
 		return true;
 		
+	}
+
+	private void defineIdUser(User userInsert) {
+		User lastUser = null;
+		for (User user : users) {
+			lastUser = user;
+		}
+		userInsert.setId(lastUser.getId()+1);
 	}
 }
