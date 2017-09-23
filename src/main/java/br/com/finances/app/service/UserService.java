@@ -42,4 +42,13 @@ public class UserService {
 		}
 		userInsert.setId(lastUser.getId()+1);
 	}
+
+	public User findUserById(final Integer idUser) {
+		for (User user : users) {
+			if(user.getId() == idUser) {
+				return user;
+			}
+		}
+		return null;
+	}
 }

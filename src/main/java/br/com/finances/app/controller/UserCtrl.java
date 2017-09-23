@@ -7,6 +7,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -32,16 +33,17 @@ public class UserCtrl {
 		return "Esse e-mail já foi registrado!";
 	}
 	
+	@GET
+	@Path("/find/{idUser}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User findUser(@PathParam("idUser") Integer idUser) {
+		
+		return userService.findUserById(idUser);
+	}
+	
 	@PUT
 	@Path("/edit")
 	public Response editUser(@PathParam("idUser") String idUser) {
-		return null;
-		
-	}
-	
-	@GET
-	@Path("/find")
-	public Response findUser(@PathParam("idUser") String idUser) {
 		return null;
 		
 	}
