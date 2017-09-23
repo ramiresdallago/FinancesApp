@@ -18,3 +18,7 @@ curl --request POST \
 	"email" : "email@teste.com",
 	"password" : "senha"
 }'
+
+# Find User - exemple curl #
+curl --request GET \
+  --url http://localhost:8080/FinancesApp/rest/user/find/1

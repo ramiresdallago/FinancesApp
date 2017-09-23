@@ -21,6 +21,7 @@ public class UserCtrl {
 	
 	private Gson gson = new Gson();
 	private UserService userService = new UserService();
+	
 	@POST
 	@Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
