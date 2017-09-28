@@ -58,9 +58,9 @@ public class UserCtrl {
 	}
 	
 	@DELETE
-	@Path("/delete")
-	public Response deleteUser(@PathParam("idUser") String idUser) {
-		return null;
-		
+	@Path("/delete/{idUser}")
+	public String deleteUser(@PathParam("idUser") Integer idUser) {
+		userService.deleteUser(idUser);
+		return "Usuário foi excluído com sucesso!";
 	}
 }

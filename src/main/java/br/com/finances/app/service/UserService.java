@@ -55,10 +55,17 @@ public class UserService {
 	public boolean updateUser(User userUpdate) {
 		for (User user : users) {
 			if(user.getId() == userUpdate.getId()) {
-				user = userUpdate;
+				user.setEmail(userUpdate.getEmail());
+				user.setName(userUpdate.getName());
+				user.setPassword(userUpdate.getPassword());
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public void deleteUser(Integer idUser) {
+		User user = findUserById(idUser);
+		users.remove(user);
 	}
 }
