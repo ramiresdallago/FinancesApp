@@ -49,6 +49,16 @@ public class UserService {
 				return user;
 			}
 		}
-		return null;
+		return new User();
+	}
+
+	public boolean updateUser(User userUpdate) {
+		for (User user : users) {
+			if(user.getId() == userUpdate.getId()) {
+				user = userUpdate;
+				return true;
+			}
+		}
+		return false;
 	}
 }

@@ -37,15 +37,23 @@ public class UserCtrl {
 	@GET
 	@Path("/find/{idUser}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User findUser(@PathParam("idUser") Integer idUser) {
-		
+	public User findUser(@PathParam("idUser") Integer idUser) {	
 		return userService.findUserById(idUser);
 	}
 	
 	@PUT
-	@Path("/edit")
-	public Response editUser(@PathParam("idUser") String idUser) {
-		return null;
+	@Path("/edit/{idUser}")
+    @Consumes(MediaType.APPLICATION_JSON)
+	public String editUser(String jsonAlteracao, @PathParam("idUser") Integer idUser) {
+		
+		User user = gson.fromJson(jsonAlteracao, User.class);
+		user.setId(idUser);
+		
+		if(userService.updateUser(user)) {
+			return "Usuário alterado com sucesso!";
+		}
+		
+		return "Erro ao alterar usuário!";
 		
 	}
 	
