@@ -9,9 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import com.google.gson.Gson;
 
 import br.com.finances.app.model.User;
 import br.com.finances.app.service.UserService;
@@ -19,15 +16,12 @@ import br.com.finances.app.service.UserService;
 @Path("/user")
 public class UserCtrl {
 	
-	private Gson gson = new Gson();
 	private UserService userService = new UserService();
 	
 	@POST
 	@Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
-	public String registerUser(String jsonCadastro) {
-		User user = gson.fromJson(jsonCadastro, User.class);
-		
+	public String registerUser(User user) {
 		if(userService.registerUser(user)) {
 			return "Usuário cadastrado com sucesso!";
 		}
@@ -42,13 +36,9 @@ public class UserCtrl {
 	}
 	
 	@PUT
-	@Path("/edit/{idUser}")
+	@Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
-	public String editUser(String jsonAlteracao, @PathParam("idUser") Integer idUser) {
-		
-		User user = gson.fromJson(jsonAlteracao, User.class);
-		user.setId(idUser);
-		
+	public String editUser(User user) {
 		if(userService.updateUser(user)) {
 			return "Usuário alterado com sucesso!";
 		}

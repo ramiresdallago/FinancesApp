@@ -32,7 +32,6 @@ public class UserService {
 		
 		users.add(userInsert);
 		return true;
-		
 	}
 
 	private void defineIdUser(User userInsert) {
